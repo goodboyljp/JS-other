@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+<input type="text" id="myphone" placeholder="请输入手机号">
+<input type="text" id="mynum" placeholder="请输入数字">
+<button onclick="clickFn()">点击验证</button>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="common.js"></script>
+<script>
+	function clickFn(){
+		var _val = $("#myphone").val();
+		var flag = util.checkPhone( _val );
+		alert( flag );
+		var _val2 = $("#mynum").val();
+		var flag2 = util.checkNumber( _val2 );
+		alert( flag2 );
+	}
+</script>	
+</body>
+</html>
