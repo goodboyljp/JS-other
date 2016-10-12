@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/underscore/underscore.js"></script>
+</head>
+<body>
+<div id="myString"></div>
+<script type="text/html" id="underscoreHtml">
+	##if(name){##
+		<h1>{{name}}</h1>
+	##}else{##
+		<h1>你什么都没有输入</h1>
+	##}##
+</script>
+<script>
+	$(function(){
+		var _html = $("#underscoreHtml").html();
+		var htmlFunction = _.template( _html );
+		var string = htmlFunction({name:"hello underscore"});
+		$('#myString').html( string )
+	})
+</script>
+</body>
+</html>

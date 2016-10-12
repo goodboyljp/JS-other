@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+</head>
+
+<body>
+    <div id="mybox"></div>
+    <script id="entry-template" type="text/x-handlebars-template">
+        <div class="entry">
+            <h1>{{title}}</h1>
+            <div class="body">
+                {{body}}
+            </div>
+        </div>
+    </script>
+    <script>
+    $(function() {
+        var source = $("#entry-template").html();
+
+        //handlears 解析模板，返回的结果是一个函数体 function template(){}
+        var template = Handlebars.compile(source);
+        // var template = function(obj) {
+        //     return '<div class="entry">' +
+        //         '<h1>' + obj.title + '</h1>' +
+        //         '<div class="body">' + obj.body +
+        //         '</div>' +
+        //         '</div>'
+        // }
+
+        var string = template({
+            title: 'hello handlebars',
+            body: 'handlebars 是个静态模板工具'
+        });
+        $("#mybox").html(string);
+    });
+    </script>
+</body>
+
+</html>
