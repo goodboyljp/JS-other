@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="bower_components/seajs/dist/sea.js"></script>
+</head>
+<body>
+
+<script>
+	seajs.config({
+		// 对所有文件设置根目录
+		base: './bower_components/jquery/',
+		//paths 设置一个路径变量，这个变量不受base影响
+		paths: {
+			a: "./"
+		},
+		// map: [
+		// 	['.js','-debug.js'],
+		// 	['.css','-debug.css']
+		// ]
+		map: [[ /^(.*\.(?:css|js))(.*)$/i,'$1?v=20161013']]
+	});
+	seajs.use('a/js/html/html.js',function(a){
+		a.say();
+	});
+</script>
+</body>
+</html>
