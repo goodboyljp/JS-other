@@ -1,0 +1,35 @@
+jquery
+seajs
+template
+	this 
+		1函数作为对象的属性  函数里面的this指向当前对象
+		2函数  this window
+		3构造函数  this指向new出来的实体对象
+
+	闭包
+		内部函数可以调用外部函数的变量
+		GC 浏览器垃圾回收机制
+		造成内存浪费
+
+	作用域、作用域链
+
+	jquery 插件扩展
+		$类级别
+			$.alert = function(){...}
+			$.extend({
+				alert: function(){...},
+				add: function(){...}
+			})
+			用法：$.alert()  $.add()
+		$('#mydiv')对象级别
+			$.fn.alert = function(){ return this;}
+			$.fn.extend({
+				alert: function(){return this;},
+				add: function(){return this;}
+			})
+			用法：$('#mydiv').alert().add()
+
+
+
+
+ng

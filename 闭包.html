@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<div id="clickBtn">点击</div>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script>
+	// var name = "hello";
+	// 
+	// 函数作为一个对象属性时候，函数内部的this指向当前对象
+	// 如果是正常的函数，this指向 window  待定 
+	// click(function(){this}) 当前点击的对象
+	// 
+	function say(){
+		// say是window级别
+		// this也是window级别
+		console.log( this.name );
+	}
+	var Say = {
+		name: "say object",
+		sayout: function(){
+			var that = this;
+			var doc = document;
+			// 函数作为一个对象的属性时候，this==当前对象
+			console.log( this.name );
+			// function aaa(){
+			// 	console.log( this.name );
+			// };
+			document.getElementById() //速度慢
+			doc.getElementById() //速度快
+			$('#clickBtn').click(function(){
+				var a = that.name;
+				console.log('click event:'+ a );
+			});
+		}
+	}
+
+	var obj = {
+		name: "obj name",
+		getName: function(){
+			console.log( this.name );
+			function name(){
+				this.name = '1111';
+			}
+			name();
+			return function(){
+				var a = this.name;
+			}
+		}
+	}
+
+// GC 浏览器的垃圾回收机制
+// 函数运行时候，浏览器自动开辟一块内存 把函数内部的各种变量，存放在此内存中，运行结束后，用不到的变量，垃圾自动回收
+
+	function content(){// 相对内部函数而言，这个外部函数
+		var age = 18;// 私有变量
+		console.log( age );
+		// 内部函数可以访问外部函数的变量
+		function log(){// 内部函数
+			return age;
+		}
+		return log;
+	}
+	content();
+	// var s = content();
+	// s();
+
+
+</script>
+</body>
+</html>

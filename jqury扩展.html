@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<div id="mydiv">asdfasdfasdfasdfasf</div>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script>
+	// 在jquery上封装一个alert函数
+	// $.alert()
+	$.alert = function(msg){
+		console.log( msg );
+	}
+	$.extend({
+		toAdd: function(a,b){
+			return a+b;
+		},
+		toCheng: function(a,b){
+			return a*b;
+		}
+	});
+
+	// $.fn  $('#mydiv').log().log2().hide()
+	$.fn.log2 = function(){
+		console.log('success2');
+		return this;
+	}
+	$.fn.extend({
+		log: function(){
+			console.log('success');
+			return this;
+		}
+	});
+
+
+
+</script>
+</body>
+</html>
