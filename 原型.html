@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>原型</title>
+</head>
+<body>
+<script>
+// Object
+// 	Function
+// 		Date 
+// 		String
+
+	function Person(){}
+	Person.prototype.say='hello world';
+	/*
+		prototype 【函数】的原型对象 
+			contructor : Person
+			say: 'hello world'
+			// 原型链 把原型与原型链接到一块
+			__proto__: 父级的prototype
+	 */
+	var person1 = new Person();
+
+	var F = function(){}
+	F.prototype = Person.prototype;
+	var f = new F();
+
+	function Doctor(){
+		this.name = '';
+		this.age = ''
+	}
+	// Doctor.prototype = Person.prototype;
+	Doctor.prototype = person1;
+	Doctor.prototype.contructor = Doctor;
+	var obj = {}
+	for(key in obj ){
+		if( obj.hasOwnProperty( key ) ){
+
+		}
+	}
+	// person1.prototype === undefined
+</script>	
+</body>
+</html>
